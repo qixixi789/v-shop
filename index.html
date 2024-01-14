@@ -3,8 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport"
-    content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover" />
   <title>
     <%= title %>
   </title>
@@ -12,33 +11,159 @@
 </head>
 
 <body>
-  <div id="app">
-    <style>
-      .app-preloader {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 2;
-        background-color: #fff;
-        color: #c8c9cc;
-      }
+<div id="app">
+  <style>
+    .app-preloader {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 2;
+      background-color: #fff;
+      color: #c8c9cc;
+    }
 
-      .dark .app-preloader {
-        background-color: #17171a;
-        color: rgba(255, 255, 255, .7);
+    .dark .app-preloader {
+      background-color: #17171a;
+      color: rgba(255, 255, 255, .7);
+    }
+    .app-loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100vh;
+    }
+
+    .app-loading .app-loading-wrap {
+      display: flex;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transform: translate3d(-50%, -50%, 0);
+    }
+
+    .app-loading .dots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 98px;
+    }
+
+    .app-loading .app-loading-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 30px;
+      color: rgb(0 0 0 / 85%);
+      font-size: 20px;
+    }
+
+    .dark .app-loading-title {
+      color: rgba(255, 255, 255, .7);
+    }
+
+
+    .app-loading .app-loading-logo {
+      display: block;
+      width: 90px;
+      margin: 0 auto 20px;
+    }
+
+    .app-loading .dot {
+      display: inline-block;
+      position: relative;
+      box-sizing: border-box;
+      width: 48px;
+      height: 48px;
+      margin-top: 30px;
+      transform: rotate(45deg);
+      animation: ant-rotate 1.2s infinite linear;
+      font-size: 32px;
+    }
+
+    .app-loading .dot i {
+      display: block;
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      transform: scale(0.75);
+      transform-origin: 50% 50%;
+      animation: ant-spin-move 1s infinite linear alternate;
+      border-radius: 100%;
+      opacity: 0.3;
+      background-color: #0065cc;
+    }
+
+    .app-loading .dot i:nth-child(1) {
+      top: 0;
+      left: 0;
+    }
+
+    .app-loading .dot i:nth-child(2) {
+      top: 0;
+      right: 0;
+      animation-delay: 0.4s;
+    }
+
+    .app-loading .dot i:nth-child(3) {
+      right: 0;
+      bottom: 0;
+      animation-delay: 0.8s;
+    }
+
+    .app-loading .dot i:nth-child(4) {
+      bottom: 0;
+      left: 0;
+      animation-delay: 1.2s;
+    }
+
+    @keyframes ant-rotate {
+      to {
+        transform: rotate(405deg);
       }
-    </style>
-    <div class="app-preloader">
-      <div class="app-preloader__label">正在加载... </div>
+    }
+
+    @keyframes ant-rotate {
+      to {
+        transform: rotate(405deg);
+      }
+    }
+
+    @keyframes ant-spin-move {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes ant-spin-move {
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+  <div class="app-preloader">
+    <div class="app-loading">
+      <div class="app-loading-wrap">
+        <img src="logo.png" class="app-loading-logo" alt="Logo" />
+        <div class="app-loading-dots">
+          <span class="dot dot-spin"><i></i><i></i><i></i><i></i></span>
+        </div>
+        <div class="app-loading-title app-preloader__label">内购商城</div>
+      </div>
     </div>
   </div>
-  <script type="module" src="/src/main.ts"></script>
+</div>
+<script type="module" src="/src/main.ts"></script>
 </body>
 
 </html>
